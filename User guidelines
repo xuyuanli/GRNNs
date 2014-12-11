@@ -1,0 +1,73 @@
+User guidelines:
+These are the guidelines for the program Generalised Regression Neural Networks (GRNNs).
+
+
+1. Overview of this program:
+The Water Systems research group in the University of Adelaide’s School of Civil, Environmental and Mining
+Engineering has been researching the use of artificial neural networks (ANNs) for water resources modeling
+applications, such as flow forecasting, water quality forecasting and water treatment process modeling since
+the early 1990s. While Multi‐Layer Perceptrons (MLPs) are the most widely used ANN architecture in water
+resources and hydrology, Generalised Regression Neural Networks (GRNNs) provide an alternative that is
+worth considering, especially as their structure is fixed and therefore does not have to be determined by
+trial‐and‐error. Consequently, this removes some of the uncertainty associated with the ANN model
+development process.
+In order to be able to implement GRNNs for research purposes, software code for developing GRNN models
+has been developed in PGI Visual Fortran 2008. The detailed theory and sample applications are given in ‘Li
+X., Zecchin A.C. and Maier H.R. Selection of smoothing parameter estimators for General Regression Neural
+Networks ‐ applications to hydrological and water resources modelling, Environmental Modelling and
+Software, accepted May 6, 2014.’
+
+
+2. How to use this program:
+This program can be compiled and run on windows PGI visual FORTRAN 2008 (or lower version) and Linux
+2.6.32.2.
+
+2.1 In windows:
+ Prepare input files
+The format is:
+1st line: No. of data for each input No. of input ( e.g. 1000 3 )
+2nd line: Input 1 input 2 input 3 output ( e.g Input(1,1) Input(1,2) Input(1,3) output(1) )
+3rd line: Input 1 input 2 input 3 output ( e.g Input(2,1) Input(2,2) Input(2,3) output(2) )
+⋮
+1000th line: Input 1 input 2 input 3 output ( e.g Input(1000,1) Input(1000,2) Input(1000,3)
+output(1000) )
+(*Please also see the example file ‘EAR4_NORM.txt’);
+(* if there are 30 repeats and each repeat contains 500 data, put all 30*500 data in the input file
+and the No. of data of each input is 15000 （30 replicates 􀵈 500 data points per replicate）);
+
+ Update the input file name (open (unit=111,file="EAR4_NORM.txt",status='old')) in
+the main program and the number of variables (SUBROUTINE set_PSO_parameters(swarm)-
+swarm%Nx) in GRNNTEMOSE.f90 and GRNNTEMOME.f90 if needed;
+ Execute the ‘pvfproj’ file ;
+ Type in the no. of repeating tests; this program allows any number of repeats;
+ Select the GRNNs with the proposed smoothing parameter estimators; see the suggestions on the
+screen;
+ Check the output files;
+
+2.2 In Linux:
+ Build program file and load all f90 files and input files (see the example file ‘EAR4_NORM.txt’);
+ Write a batch file or simply link the program with the following code:
+e.g. ‘ifort (or g95 ‐combine) PSOmod.f90 General_Functions.f90 1GRNNGRR.f90 2GRNNBCV.f90
+3GRNNDPI.f90 4GRNNBCVDPI.f90 5GRNNSCV.f90 6GRNNTESOSE.f90 7GRNNTESOME.f90 8GRNNT
+EMOSE.f90 9GRNNTEMOME.f90 GRNNS9SPmian.f90 ‐o test1.run’;
+ Execute ‘test1.run’ and type in the no. of repeating tests;
+ Select the GRNNs with the proposed smoothing parameter estimators;
+ Check the output files;
+
+
+3. Outputs:
+Be aware that all output files are replaced after each run, so backup all results after each run.
+ File 1 ( Test_bandwidth1.txt): include all estimated smoothing parameter for each input;
+ File 2 (Test_detailoutput1.txt): include all estimated output BUT ARE STANDARDISED; NEED TO DESTANDARDISED
+to get the actual estimated output;
+ File 3 (Test_summaryoutput1.txt): include all performance summary (accuracy & efficiency) of
+GRNNs modelling;
+
+
+4. Contact:
+If you have related issues during the application, please e‐mail:
+Mr. XUYUAN LI xliadelaide@gmail.com
+
+
+Thank you for using this program!
+XUYUAN 06/05/2014
