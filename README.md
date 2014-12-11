@@ -6,6 +6,8 @@ Generalised Regression Neural Network
 	Overview
 The Water Systems research group at the University of Adelaide School of Engineering has been researching the use of artificial neural networks (ANNs) for water resources modeling applications, such as flow forecasting, water quality forecasting and water treatment process modeling since the early 1990s. While Multi-Layer Perceptrons (MLPs) are the most widely used ANN architecture in water resources and hydrology, Generalised Regression Neural Networks (GRNNs) provide an alternative that is worth considering, especially as their structure is fixed and therefore does not have to be determined by trial-and-error. Consequently, this removes some of the uncertainty associated with the ANN model development process. In order to be able to implement GRNNs for research purposes, software code for developing GRNN models has been developed in PGI Visual Fortran 2008.
 
+
+
 	Features
 The primary feature of the code for developing GRNNs is that is caters to nine (9) different methods of estimating the GRNN smoothing parameter (i.e. nine different method of model calibration / ANN training). Of these methods, five are based on bandwidth estimators used in kernel density estimation, and four are based on single and multivariable calibration strategies.
 
@@ -22,6 +24,8 @@ The primary feature of the code for developing GRNNs is that is caters to nine (
 	Multivariable calibration with squared error as the objective function (MVCS)
 	Multi-variable calibration with mean absolute error as the objective function (MVCA)
 
+
+
 	Download
 Requirements
 The provided software is FORTRAN 90 source code, and therefore requires a FORTRAN 90/95 compiler. (The source code was developed using the PGI Visual Fortran 2003.)
@@ -30,9 +34,13 @@ GRNN Software
 Download
 GRNN Software Guide
 
+
+
 Terms of Use
 The software is freely available to use under the terms and conditions of the Creative Commons license. If you intend to use this software for an academic publication or report, we would appreciate your acknowledgement of the origin of the software by referencing the following article:
 	Li X., Zecchin A.C. and Maier H.R. (2014) Selection of smoothing parameter estimators for General Regression Neural Networks - applications to hydrological and water resources modelling, Environmental Modelling and Software, 59, 162-186,  DOI: 10.1016/j.envsoft.2014.05.010.
+
+
 
 	Related Publications
 For further information on the application of artificial neural networks to water resources modeling and the methods used in their development, please refer to the following articles:
@@ -64,6 +72,8 @@ ANN Training / Model Selection
 	Maier H.R. and Dandy G.C. (1998) Understanding the behaviour and optimising the performance of back-propagation neural networks: an empirical study. Environmental Modelling and Software, 13(2), 179-191.
 ANN Model Deployment
 	Bowden G.J., Maier H.R. and Dandy G.C. (2012) Real-time deployment of artificial neural network forecasting models - understanding the range of applicability, Water Resources Research, 48(10), doi:10.1029/2012WR011984.
+
+
 
 Access to the on-line content from the University of Adelaide:
 http://www.ecms.adelaide.edu.au/civeng/research/water/software/generalised-regression-neural-network/
